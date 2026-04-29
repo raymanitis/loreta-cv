@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import profile from "../../../images/profile.jpg";
+import { PROFILE_IMAGE_URL } from "../../../constants/profile";
 import { useLanguage } from "../../../context/LanguageContext";
 
 const socials = [
@@ -26,13 +26,21 @@ const Sidebar = () => {
     <aside className="sticky top-0 bg-gray-800 border border-gray-700 md:mx-8 lg:mx-4 mb-8 p-6 shadow-md rounded-md -mt-40">
       <div className="w-24 h-24 rounded-md overflow-hidden mx-auto mb-5">
         <img
-          src={profile}
+          src={PROFILE_IMAGE_URL}
           alt={tk(s.profileAlt)}
           className="w-full h-full object-cover"
         />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-100 font-bold mb-6">Loreta Lujāne</h1>
+        <h1 className="text-xl text-gray-100 font-bold mb-4">Loreta Lujāne</h1>
+        <p className="text-xs text-gray-500 mb-3 px-2">{tk(s.cvHint)}</p>
+        <a
+          href={`${process.env.PUBLIC_URL ?? ""}/cv.html`}
+          download="Loreta-Lujane-CV.html"
+          className="inline-block mb-6 rounded bg-baby-600 text-center border-0 py-2 px-6 text-white text-sm leading-7 tracking-wide hover:bg-baby-800 transition-colors"
+        >
+          {tk(s.downloadResume)}
+        </a>
         <ul className="flex flex-wrap justify-center gap-1">
           {socials.map((social) => (
             <SocialIcon social={social} key={social.id} />

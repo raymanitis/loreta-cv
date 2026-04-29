@@ -127,6 +127,14 @@ export const translations = {
   },
   sidebar: {
     profileAlt: { en: "Loreta Lujāne", lv: "Loreta Lujāne" },
+    downloadResume: {
+      en: "Download CV",
+      lv: "Lejupielādēt CV",
+    },
+    cvHint: {
+      en: "Opens an offline-friendly CV page that matches this site.",
+      lv: "Atver offline draudzīgu CV lapu, kas atbilst šai vietnei.",
+    },
   },
 };
 

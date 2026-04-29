@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111827" />
+    <meta name="description" content="CV — Loreta Lujāne" />
+    <title>Loreta Lujāne · CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              baby: {
+                300: "#ffc6df",
+                400: "#f8b0d4",
+                500: "#ed93be",
+                600: "#d978a6",
+                700: "#c0628e",
+                800: "#9e4f74",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      /*
+       * One continuous CV flow:
+       * - Screen: sticky nav mimics the live site.
+       * - Print / Save as PDF: linear column, static positioning, fewer odd splits so it reads as one document.
+       */
+      @media print {
+        @page {
+          margin: 14mm;
+          size: auto;
+        }
+        html,
+        body {
+          height: auto !important;
+          overflow: visible !important;
+          background: #ffffff !important;
+          color: #1f2937 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .cv-cover-strip {
+          height: 10rem !important;
+          background: #ffc6df !important;
+          page-break-after: avoid;
+        }
+        .cv-shell {
+          max-width: 100% !important;
+          padding-bottom: 0 !important;
+        }
+        .cv-root {
+          display: block !important;
+          margin-top: 0 !important;
+          padding-top: 1rem !important;
+        }
+        .cv-root > aside,
+        .cv-root > .cv-main {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        aside .sticky,
+        nav.cv-nav {
+          position: static !important;
+          top: auto !important;
+          box-shadow: none !important;
+        }
+        section,
+        article {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gray-900 text-gray-300">
+    <div class="cv-cover-strip h-60 w-full bg-baby-300" aria-hidden="true"></div>
+
+    <div class="cv-shell container mx-auto px-4 max-w-7xl pb-12">
+      <div class="cv-root flex flex-wrap px-4 -mt-40 relative z-10">
+        <aside class="w-full lg:w-1/3 mb-8 lg:mb-0">
+          <div
+            class="cv-sidebar-card sticky top-0 bg-gray-800 border border-gray-700 md:mx-8 lg:mx-4 mb-8 p-6 shadow-md rounded-md"
+          >
+            <div class="w-24 h-24 rounded-md overflow-hidden mx-auto mb-5">
+              <img
+                src="https://r2.fivemanage.com/aKdhnWQAzohu8VO3pwbkC/loretas.jpg"
+                alt="Loreta Lujāne"
+                width="96"
+                height="96"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="text-center">
+              <h1 class="text-xl text-gray-100 font-bold mb-3">Loreta Lujāne</h1>
+              <p data-lang-panel="en" class="text-xs text-gray-500 mb-3 px-2">
+                Offline CV — same layout & colours as the live portfolio.
+              </p>
+              <p data-lang-panel="lv" hidden class="text-xs text-gray-500 mb-3 px-2">
+                Offline CV — tas pats izkārtojums un krāsas kā dzīvajā portfolio.
+              </p>
+              <a
+                href="/about"
+                class="inline-block mb-5 text-sm text-baby-400 hover:text-baby-300 underline underline-offset-2"
+              >
+                <span data-lang-panel="en">← Back to interactive site</span>
+                <span data-lang-panel="lv" hidden>← Atpakaļ uz interaktīvo vietni</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <div class="cv-main w-full lg:w-2/3 md:mx-8 lg:mx-4">
+          <nav
+            class="cv-nav mb-6 px-4 md:px-6 py-2 sticky top-0 z-10 bg-gray-800 border border-gray-700 shadow rounded-md flex flex-wrap items-center justify-between gap-4"
+          >
+            <ul class="flex flex-wrap gap-4 md:gap-6">
+              <li class="m-3 lg:mx-5">
+                <a data-cv-anchor="about" class="text-baby-400 text-medium" href="#about"><span data-lang-panel="en">About</span><span data-lang-panel="lv" hidden>Par mani</span></a>
+              </li>
+              <li class="m-3 lg:mx-5">
+                <a data-cv-anchor="skills" class="text-gray-300 hover:text-baby-400" href="#skills"><span data-lang-panel="en">Skills</span><span data-lang-panel="lv" hidden>Prasmes</span></a>
+              </li>
+              <li class="m-3 lg:mx-5">
+                <a data-cv-anchor="works" class="text-gray-300 hover:text-baby-400" href="#works"><span data-lang-panel="en">Works</span><span data-lang-panel="lv" hidden>Darbs</span></a>
+              </li>
+              <li class="m-3 lg:mx-5">
+                <a data-cv-anchor="contact" class="text-gray-300 hover:text-baby-400" href="#contact"><span data-lang-panel="en">Contact</span><span data-lang-panel="lv" hidden>Kontakti</span></a>
+              </li>
+            </ul>
+            <div
+              class="flex items-center gap-px rounded-lg border border-gray-600 bg-gray-900/50 p-0.5"
+              role="group"
+              aria-label="Site language"
+            >
+              <button
+                type="button"
+                data-lang-btn="en"
+                class="min-w-[2.75rem] px-2 py-1.5 rounded text-sm font-semibold tracking-wide bg-baby-600 text-white"
+                aria-pressed="true"
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                data-lang-btn="lv"
+                class="min-w-[2.75rem] px-2 py-1.5 rounded text-sm font-semibold tracking-wide text-gray-400 hover:bg-gray-700 hover:text-baby-300"
+                aria-pressed="false"
+              >
+                LV
+              </button>
+            </div>
+          </nav>
+
+          <div data-lang-panel="en">
+            <section id="about" class="pb-8">
+              <h3 class="text-2xl text-gray-100 font-bold mb-6">Who am I?</h3>
+              <div class="text-sm text-gray-400 leading-relaxed space-y-3 mb-6 md:mx-4">
+                <p>I am a motivated and reliable professional with 3–4 years of experience working with international clients. I have a strong command of English and communicate confidently with people from different countries on a daily basis.</p>
+                <p>I am known for being punctual, dependable, and adaptable in fast-paced environments. My ability to think creatively helps me find effective solutions to customer issues, while maintaining a positive and professional attitude.</p>
+                <p>At 21, I bring both energy and practical experience to my work, along with a strong commitment to delivering high-quality support and ensuring customer satisfaction.</p>
+              </div>
+            </section>
+
+            <section id="skills" class="pb-8">
+              <h3 class="text-2xl text-gray-100 font-bold mb-4 md:mx-4">Skills</h3>
+              <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">English language & confident communication</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">95%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:95%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Working with international clients</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">92%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:92%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Customer service, support & satisfaction</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">95%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:95%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Reliability, punctuality & adapting to fast-paced work</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">94%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:94%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Creative problem-solving for customer issues</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">90%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:90%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Positive, professional approach</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">96%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:96%"></div></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="works" class="pb-10">
+              <div class="md:mx-4 mb-8">
+                <h2 class="text-2xl text-gray-100 font-bold mb-2">Work experience</h2>
+                <p class="text-sm text-gray-400 max-w-2xl">Places I’ve worked — company, role, and how long I was there.</p>
+              </div>
+              <article class="my-3 md:mx-4 p-6 rounded-md bg-gray-800 border border-gray-700 shadow hover:border-baby-700/50 transition-colors">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-100">Tortilla (café & shop)</h3>
+                    <p class="text-baby-400 font-medium mt-1">Café serving & counter</p>
+                  </div>
+                  <span class="shrink-0 text-sm px-3 py-1 rounded-md bg-gray-700 text-gray-200 border border-gray-600">~2 months</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">Worked at Tortilla café / shop serving customers daily: greetings, orders, cash register and handing over takeaway, cooperating with teammates during peaks.</p>
+              </article>
+              <article class="my-3 md:mx-4 p-6 rounded-md bg-gray-800 border border-gray-700 shadow hover:border-baby-700/50 transition-colors">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-100">Night club</h3>
+                    <p class="text-baby-400 font-medium mt-1">Front-of-house · guest-facing</p>
+                  </div>
+                  <span class="shrink-0 text-sm px-3 py-1 rounded-md bg-gray-700 text-gray-200 border border-gray-600">2022 – 2026</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">Night shifts interacting with diverse guests/clients throughout the venue: welcoming people, coordinating with bartenders and security, handling questions politely, and teamwork in fast-paced nighttime conditions.</p>
+              </article>
+            </section>
+
+            <section id="contact" class="pb-10">
+              <div class="md:px-4">
+                <div class="md:mx-4">
+                  <h3 class="text-2xl text-gray-100 font-bold mb-2">Contact</h3>
+                  <p class="text-sm text-gray-400 mb-8 max-w-xl">Here are the best ways to reach me — tap phone or email to connect.</p>
+                  <div class="flex flex-wrap -mx-3">
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <a href="tel:+37120654178" class="flex items-start p-6 bg-gray-800 rounded-md shadow-md border border-gray-700 hover:border-baby-500 transition-colors">
+                        <span class="w-14 h-14 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-700 text-baby-300 text-2xl" aria-hidden="true">📞</span>
+                        <div class="ml-4 pt-1 min-w-0">
+                          <span class="block text-xs uppercase tracking-wide text-gray-500 mb-1">Phone</span>
+                          <span class="text-gray-100 font-medium text-lg break-all">+371 20 654 178</span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <a href="mailto:loreta.lujane@gmail.com" class="flex items-start p-6 bg-gray-800 rounded-md shadow-md border border-gray-700 hover:border-baby-500 transition-colors">
+                        <span class="w-14 h-14 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-700 text-baby-300 text-2xl" aria-hidden="true">✉</span>
+                        <div class="ml-4 pt-1 min-w-0">
+                          <span class="block text-xs uppercase tracking-wide text-gray-500 mb-1">Email</span>
+                          <span class="text-gray-100 font-medium text-lg break-all">loreta.lujane@gmail.com</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div data-lang-panel="lv" hidden>
+            <section id="about-lv" class="pb-8">
+              <h3 class="text-2xl text-gray-100 font-bold mb-6">Kas es esmu?</h3>
+              <div class="text-sm text-gray-400 leading-relaxed space-y-3 mb-6 md:mx-4" lang="lv">
+                <p>Esmu motivēta un uzticama profesionāle ar 3–4 gadu pieredzi darbā ar starptautiskiem klientiem. Man ir labas angļu valodas zināšanas, un es ikdienā pārliecinoši komunicēju ar cilvēkiem no dažādām valstīm.</p>
+                <p>Esmu pazīstama ar savu punktualitāti, uzticamību un spēju pielāgoties strauji mainīgā vidē. Mana spēja radoši domāt palīdz man atrast efektīvus risinājumus klientu problēmām, vienlaikus saglabājot pozitīvu un profesionālu attieksmi.</p>
+                <p>21 gada vecumā es savā darbā ienesu gan enerģiju, gan praktisku pieredzi, kā arī stingru apņemšanos sniegt augstas kvalitātes atbalstu un nodrošināt klientu apmierinātību.</p>
+              </div>
+            </section>
+
+            <section id="skills-lv" class="pb-8">
+              <h3 class="text-2xl text-gray-100 font-bold mb-4 md:mx-4">Prasmes</h3>
+              <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Angļu valoda un pārliecinoša komunikācija</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">95%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:95%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Darbs ar starptautiskiem klientiem</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">92%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:92%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Klientu apkalpošana, atbalsts un apmierinātība</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">95%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:95%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Uzticamība, punktualitāte un pielāgošanās dinamiskai videi</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">94%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:94%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Radošas problēmu risināšanas pieeja klientu jautājumiem</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">90%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:90%"></div></div>
+                </div>
+                <div class="w-full md:w-1/2 mb-4 md:mx-4">
+                  <div class="flex justify-between items-start gap-2 mb-1">
+                    <h5 class="text-md text-gray-400 font-light pr-2">Pozitīva un profesionāla attieksme</h5>
+                    <span class="text-md text-baby-400 font-bold shrink-0">96%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 relative h-2 rounded"><div class="absolute h-full left-0 top-0 bg-baby-500 rounded" style="width:96%"></div></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="works-lv" class="pb-10">
+              <div class="md:mx-4 mb-8">
+                <h2 class="text-2xl text-gray-100 font-bold mb-2">Darba pieredze</h2>
+                <p class="text-sm text-gray-400 max-w-2xl">Manas darba vietas — uzņēmums, amats un laika periods.</p>
+              </div>
+              <article class="my-3 md:mx-4 p-6 rounded-md bg-gray-800 border border-gray-700 shadow hover:border-baby-700/50 transition-colors">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-100">Tortilla (kafejnīcas veikals)</h3>
+                    <p class="text-baby-400 font-medium mt-1">Apkalpošana pie letes</p>
+                  </div>
+                  <span class="shrink-0 text-sm px-3 py-1 rounded-md bg-gray-700 text-gray-200 border border-gray-600">~2 mēneši</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">Darbs Tortilla kafejnīcas veikalā: klientu apkalpošana, pasūtījumu pieņemšana, kases darbs un sadarbība ar kolektīvu arī ļoti saspringtākajās maiņās.</p>
+              </article>
+              <article class="my-3 md:mx-4 p-6 rounded-md bg-gray-800 border border-gray-700 shadow hover:border-baby-700/50 transition-colors">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-100">Nakts klubs</h3>
+                    <p class="text-baby-400 font-medium mt-1">Darbs klientorientētā naktsvietnes vietā</p>
+                  </div>
+                  <span class="shrink-0 text-sm px-3 py-1 rounded-md bg-gray-700 text-gray-200 border border-gray-600">2022 – 2026</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">Nakts maiņās būtiska komunikācija un sadarbība ar dažādiem viesiem un klientiem, jautājumu risināšana, kolektīva darbs ar baru un drošības komandām dinamiski mainīgās jebkurās situācijas režīmu.</p>
+              </article>
+            </section>
+
+            <section id="contact-lv" class="pb-10">
+              <div class="md:px-4">
+                <div class="md:mx-4">
+                  <h3 class="text-2xl text-gray-100 font-bold mb-2">Kontakti</h3>
+                  <p class="text-sm text-gray-400 mb-8 max-w-xl">Visērtāk man sazināties pa tālruni vai e-pastu — pieskarieties, lai atvērtu.</p>
+                  <div class="flex flex-wrap -mx-3">
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <a href="tel:+37120654178" class="flex items-start p-6 bg-gray-800 rounded-md shadow-md border border-gray-700 hover:border-baby-500 transition-colors">
+                        <span class="w-14 h-14 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-700 text-baby-300 text-2xl" aria-hidden="true">📞</span>
+                        <div class="ml-4 pt-1 min-w-0">
+                          <span class="block text-xs uppercase tracking-wide text-gray-500 mb-1">Tālrunis</span>
+                          <span class="text-gray-100 font-medium text-lg break-all">+371 20 654 178</span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mb-6">
+                      <a href="mailto:loreta.lujane@gmail.com" class="flex items-start p-6 bg-gray-800 rounded-md shadow-md border border-gray-700 hover:border-baby-500 transition-colors">
+                        <span class="w-14 h-14 flex-shrink-0 flex items-center justify-center rounded-md bg-gray-700 text-baby-300 text-2xl" aria-hidden="true">✉</span>
+                        <div class="ml-4 pt-1 min-w-0">
+                          <span class="block text-xs uppercase tracking-wide text-gray-500 mb-1">E-pasts</span>
+                          <span class="text-gray-100 font-medium text-lg break-all">loreta.lujane@gmail.com</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var STORAGE_KEY = "loreta-lang";
+
+        function apply(lang) {
+          document.documentElement.lang = lang === "lv" ? "lv" : "en";
+
+          document.querySelectorAll("[data-lang-panel]").forEach(function (el) {
+            var match = el.getAttribute("data-lang-panel") === lang;
+            if (match) el.removeAttribute("hidden");
+            else el.setAttribute("hidden", "");
+          });
+
+          document.querySelectorAll("a[data-cv-anchor]").forEach(function (a) {
+            var base = a.getAttribute("data-cv-anchor");
+            if (!base) return;
+            a.setAttribute("href", "#" + base + (lang === "lv" ? "-lv" : ""));
+          });
+
+          document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+            var on = btn.getAttribute("data-lang-btn") === lang;
+            btn.classList.toggle("bg-baby-600", on);
+            btn.classList.toggle("text-white", on);
+            btn.classList.toggle("text-gray-400", !on);
+            btn.classList.toggle("hover:bg-gray-700", !on);
+            btn.classList.toggle("hover:text-baby-300", !on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+
+          try {
+            localStorage.setItem(STORAGE_KEY, lang);
+          } catch (_e) {}
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          var saved = "en";
+          try {
+            var s = localStorage.getItem(STORAGE_KEY);
+            if (s === "lv" || s === "en") saved = s;
+          } catch (_e) {}
+
+          apply(saved);
+
+          document.querySelectorAll("[data-lang-btn]").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              apply(btn.getAttribute("data-lang-btn") || "en");
+            });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
