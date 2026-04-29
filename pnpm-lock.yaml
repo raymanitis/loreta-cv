@@ -6,6 +6,7 @@ settings:
 
 overrides:
   '@babel/core': ^7.23.0
+  postcss-safe-parser>postcss: 8.4.47
 
 importers:
 
@@ -5057,6 +5058,10 @@ packages:
     resolution: {integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==}
     engines: {node: '>=6.0.0'}
 
+  postcss@8.4.47:
+    resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
   postcss@8.5.12:
     resolution: {integrity: sha512-W62t/Se6rA0Az3DfCL0AqJwXuKwBeYg6nOaIgzP+xZ7N5BFCI7DYi1qs6ygUYT6rvfi6t9k65UMLJC+PHZpDAA==}
     engines: {node: ^10 || ^12 || >=14}
@@ -7746,7 +7751,7 @@ snapshots:
       '@types/istanbul-lib-coverage': 2.0.6
       collect-v8-coverage: 1.0.3
 
-  '@jest/test-sequencer@26.6.3':
+  '@jest/test-sequencer@26.6.3(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5))':
     dependencies:
       '@jest/test-result': 26.6.2
       graceful-fs: 4.2.11
@@ -7754,7 +7759,11 @@ snapshots:
       jest-runner: 26.6.3(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5))
       jest-runtime: 26.6.3(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5))
     transitivePeerDependencies:
+      - bufferutil
+      - canvas
       - supports-color
+      - ts-node
+      - utf-8-validate
 
   '@jest/transform@26.6.2':
     dependencies:
@@ -11328,7 +11337,7 @@ snapshots:
       execa: 4.1.0
       throat: 5.0.0
 
-  jest-circus@26.6.0:
+  jest-circus@26.6.0(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5)):
     dependencies:
       '@babel/traverse': 7.29.0
       '@jest/environment': 26.6.2
@@ -11352,7 +11361,11 @@ snapshots:
       stack-utils: 2.0.6
       throat: 5.0.0
     transitivePeerDependencies:
+      - bufferutil
+      - canvas
       - supports-color
+      - ts-node
+      - utf-8-validate
 
   jest-cli@26.6.3(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5)):
     dependencies:
@@ -11379,7 +11392,7 @@ snapshots:
   jest-config@26.6.3(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5)):
     dependencies:
       '@babel/core': 7.29.0
-      '@jest/test-sequencer': 26.6.3
+      '@jest/test-sequencer': 26.6.3(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5))
       '@jest/types': 26.6.2
       babel-jest: 26.6.3(@babel/core@7.29.0)
       chalk: 4.1.2
@@ -12989,7 +13002,7 @@ snapshots:
 
   postcss-safe-parser@5.0.2:
     dependencies:
-      postcss: 8.5.12
+      postcss: 8.4.47
 
   postcss-selector-matches@4.0.0:
     dependencies:
@@ -13056,6 +13069,12 @@ snapshots:
     dependencies:
       picocolors: 0.2.1
       source-map: 0.6.1
+
+  postcss@8.4.47:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
 
   postcss@8.5.12:
     dependencies:
@@ -13329,7 +13348,7 @@ snapshots:
       html-webpack-plugin: 4.5.0(webpack@4.44.2)
       identity-obj-proxy: 3.0.0
       jest: 26.6.0(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5))
-      jest-circus: 26.6.0
+      jest-circus: 26.6.0(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5))
       jest-resolve: 26.6.0
       jest-watch-typeahead: 0.6.1(jest@26.6.0(ts-node@10.9.2(@types/node@25.6.0)(typescript@4.9.5)))
       mini-css-extract-plugin: 0.11.3(webpack@4.44.2)
