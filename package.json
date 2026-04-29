@@ -21,7 +21,8 @@
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider craco start",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider craco build",
     "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "vercel-install": "npx --yes pnpm@10.33.2 install --frozen-lockfile"
   },
   "eslintConfig": {
     "extends": [

@@ -32,19 +32,7 @@ const Sidebar = () => {
         />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-100 font-bold mb-1">Loreta Lujāne</h1>
-        <p className="text-sm text-gray-400 mb-3 px-1">
-          <span>{tk(s.roleBeforeLink)}</span>
-          <a
-            href={s.schoolHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-baby-400 hover:text-baby-300 underline-offset-2"
-          >
-            {tk(s.roleLinkLabel)}
-          </a>
-          <span>{tk(s.roleAfterLink)}</span>
-        </p>
+        <h1 className="text-xl text-gray-100 font-bold mb-4">Loreta Lujāne</h1>
         <a
           href="#0"
           className="inline-block mb-6 rounded bg-baby-600 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide hover:bg-baby-800"

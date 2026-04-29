@@ -1,4 +1,4 @@
 {
-  "installCommand": "npx --yes pnpm@10.33.2 install --frozen-lockfile",
+  "installCommand": "npm run vercel-install",
   "buildCommand": "npm run build"
 }

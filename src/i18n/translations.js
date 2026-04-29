@@ -126,19 +126,6 @@ export const translations = {
     email: { en: "Email", lv: "E-pasts" },
   },
   sidebar: {
-    roleBeforeLink: {
-      en: "Grade 10 student at ",
-      lv: "10. klases skolniece iekš ",
-    },
-    roleLinkLabel: {
-      en: "VSK.LV",
-      lv: "VSK.LV",
-    },
-    roleAfterLink: {
-      en: " — VSK distance-learning secondary school",
-      lv: " jeb VSK tālmācības vidusskola",
-    },
-    schoolHref: "https://www.vsk.lv/",
     downloadResume: { en: "Download Resume", lv: "Lejupielādēt CV" },
     profileAlt: { en: "Loreta Lujāne", lv: "Loreta Lujāne" },
   },
