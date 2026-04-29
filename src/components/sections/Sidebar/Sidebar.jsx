@@ -32,14 +32,7 @@ const Sidebar = () => {
         />
       </div>
       <div className="text-center">
-        <h1 className="text-xl text-gray-100 font-bold mb-4">Loreta Lujāne</h1>
-        <a
-          href="#0"
-          className="inline-block mb-6 rounded bg-baby-600 text-center border-0 py-2 px-6 text-white leading-7 tracking-wide hover:bg-baby-800"
-          download="Resume"
-        >
-          {tk(s.downloadResume)}
-        </a>
+        <h1 className="text-xl text-gray-100 font-bold mb-6">Loreta Lujāne</h1>
         <ul className="flex flex-wrap justify-center gap-1">
           {socials.map((social) => (
             <SocialIcon social={social} key={social.id} />

@@ -126,7 +126,6 @@ export const translations = {
     email: { en: "Email", lv: "E-pasts" },
   },
   sidebar: {
-    downloadResume: { en: "Download Resume", lv: "Lejupielādēt CV" },
     profileAlt: { en: "Loreta Lujāne", lv: "Loreta Lujāne" },
   },
 };
